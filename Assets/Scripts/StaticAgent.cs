@@ -33,13 +33,10 @@ public class StaticAgent : MonoBehaviour
 
                 if (destinationMarkerPrefab != null)
                 {
-                    currentMarker = Instantiate(destinationMarkerPrefab, hit.point, destinationMarkerPrefab.transform.rotation);
-                    Debug.Log("마커 프리팹 생성");
+                    currentMarker = Instantiate(destinationMarkerPrefab, new Vector3(hit.point.x,hit.point.y + 1,hit.point.z), destinationMarkerPrefab.transform.rotation);
                 }
 
                 pathLine.enabled = true;
-
-                Debug.Log("마우스 포지션 : " + Input.mousePosition + " / hit.point : " + hit.point);
             }
         }
 

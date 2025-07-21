@@ -21,6 +21,7 @@ public class LivingEntity : MonoBehaviour, IDamageable {
     public virtual void OnDamage(float damage, Vector3 hitPoint, Vector3 hitNormal) {
         // 데미지만큼 체력 감소
         health -= damage;
+            Debug.Log(gameObject.name + gameObject != null ? "데미지 입음" : "데미지 입었는데 게임 오브젝트가 없음");
 
         // 체력이 0 이하 && 아직 죽지 않았다면 사망 처리 실행
         if (health <= 0 && !dead)
@@ -47,7 +48,9 @@ public class LivingEntity : MonoBehaviour, IDamageable {
         if (onDeath != null)
         {
             onDeath();
+            Debug.Log("onDeath 실행");
         }
+            Debug.Log(onDeath != null ? "onDeath 실행" : "onDeath 없는데");
 
         // 사망 상태를 참으로 변경
         dead = true;

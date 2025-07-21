@@ -31,6 +31,7 @@ public class Zombie : LivingEntity
             // 추적할 대상이 존재하고, 대상이 사망하지 않았다면 true
             if (targetEntity != null && !targetEntity.dead)
             {
+                Debug.Log("타겟 엔티티 있음 인간이다!!!!");
                 return true;
             }
 
@@ -80,6 +81,7 @@ public class Zombie : LivingEntity
             {
                 navMeshAgent.isStopped = false;
                 navMeshAgent.SetDestination(targetEntity.transform.position);
+                Debug.Log("타겟 엔티티에게 갈 경로 생성");
             }
             else
             {
